@@ -1,6 +1,8 @@
 const monitorUrl = 'https://primal-space-monitor.vercel.app/';
 const cliUrl = 'https://github.com/mahithpaulin/primal-space-cli';
 const monitorRepoUrl = 'https://github.com/mahithpaulin/primal-space-monitor';
+const androidRepoUrl = 'https://github.com/mahithpaulin/primalspace-android';
+const apkUrl = 'https://github.com/mahithpaulin/primalspace-android/releases/latest/download/primalspace.apk';
 
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
@@ -41,14 +43,14 @@ export default function Home() {
 
       <section id="install" className="install-section">
         <div className="shell install-layout">
-          <div><div className="section-label">02 / GET STARTED</div><h2>Built for the<br /><em>command line.</em></h2><p>PrimalSpace currently ships as a Python CLI for Termux. Install it on an Android device, connect it to your monitor, and opt into compute when you are ready.</p><a className="button primary" href={cliUrl}>Download CLI from GitHub <Arrow /></a></div>
+          <div><div className="section-label">02 / GET STARTED</div><h2>Native app.<br /><em>Or the CLI.</em></h2><p>Install the PrimalSpace Android app for a ready-made UI, or use the Python CLI in Termux. Both connect to the same monitor and worker protocol.</p><div className="install-actions"><a className="button primary" href={apkUrl}>Download Android APK <Arrow /></a><a className="button install-secondary" href={cliUrl}>Get the CLI <Arrow /></a></div></div>
           <div className="terminal"><div className="terminal-bar"><span /><span /><span /><label>primalspace / install</label></div><pre><code><i>$</i> git clone {cliUrl.replace('https://github.com/', 'github.com/')}<br /><i>$</i> cd primal-space-cli<br /><i>$</i> pip install -e .<br /><i>$</i> primal init --server {monitorUrl.replace('https://', '')}<br /><i>$</i> primal connect<br /><br /><b>● connected</b>  Realme Narzo 50A<br /><small>heartbeat active · compute enabled</small></code></pre></div>
         </div>
       </section>
 
       <section className="status-section shell"><div className="status-card"><div><div className="section-label">LIVE SYSTEM</div><h2>See the network<br />as it runs.</h2></div><div className="status-right"><div className="live-line"><span className="live-dot" />Production monitor online</div><p>Open the dashboard to view connected devices, queue work, and inspect results.</p><a href={monitorUrl}>Open Primal Monitor <Arrow /></a></div></div></section>
 
-      <footer className="footer shell"><a className="wordmark" href="#top"><span className="mark" />PRIMAL<span>SPACE</span></a><div><a href={cliUrl}>CLI</a><a href={monitorRepoUrl}>Monitor source</a><a href={monitorUrl}>Dashboard</a></div><small>Private compute, made visible.</small></footer>
+      <footer className="footer shell"><a className="wordmark" href="#top"><span className="mark" />PRIMAL<span>SPACE</span></a><div><a href={apkUrl}>Android app</a><a href={cliUrl}>CLI</a><a href={androidRepoUrl}>App source</a><a href={monitorRepoUrl}>Monitor source</a><a href={monitorUrl}>Dashboard</a></div><small>Private compute, made visible.</small></footer>
     </main>
   );
 }
